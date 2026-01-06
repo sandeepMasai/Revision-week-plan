@@ -1,0 +1,16 @@
+{
+  "name": "day-7",
+  "version": "1.0.0",
+  "description": "1. What is Express.js? Why use it over plain Node.js? Express.js is an unopinionated, flexible, and fast backend framework built on top of the core Node.js http module.  Why use it over plain Node.js Reduced Boilerplate: Express abstracts the low-level HTTP handling details of plain Node.js,  so you write less code for common tasks.Powerful Routing: It provides a clean and organized way to define routes for different URL paths and HTTP methods (GET, POST, etc.), which is difficult to manage in bare Node.js as an application scales. Middleware Ecosystem: Express has a vast ecosystem of third-party middleware packages (like morgan for logging or  multer for file uploads) that add functionality easily, saving development time.Modularity & Organization: It  encourages modularity and a structured approach to application architecture (like MVC), making the codebase easier to maintain and scale.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
