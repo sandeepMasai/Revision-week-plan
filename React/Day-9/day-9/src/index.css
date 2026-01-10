@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  padding: 20px;
+  text-align: center;
+}
+
+.table-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 700px;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+th {
+  background-color: #1976d2;
+  color: white;
+}
+
+.total {
+  font-weight: bold;
+  background-color: #e3f2fd;
+}
+
+pre {
+  text-align: left;
+  background: #111;
+  color: #0f0;
+  padding: 12px;
+  margin-top: 20px;
+  overflow-x: auto;
+}
