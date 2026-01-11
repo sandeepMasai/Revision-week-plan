@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Shopping Cart</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      .container {
+        display: flex;
+        gap: 40px;
+      }
+
+      .products,
+      .cart {
+        width: 45%;
+        border: 1px solid #ddd;
+        padding: 15px;
+      }
+
+      .product,
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 4px 8px;
+        cursor: pointer;
+      }
+
+      .qty-controls button {
+        margin: 0 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Shopping Cart</h1>
+
+    <div class="container">
+      <div class="products">
+        <h2>Products</h2>
+        <div id="productList"></div>
+      </div>
+
+      <div class="cart">
+        <h2>Cart</h2>
+        <div id="cartItems"></div>
+
+        <div class="summary">
+          <p>Subtotal: $<span id="subtotal">0</span></p>
+          <p>Tax (10%): $<span id="tax">0</span></p>
+          <h3>Total: $<span id="total">0</span></h3>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

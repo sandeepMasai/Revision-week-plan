@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Data Driven Accordion</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      .accordion {
+        max-width: 600px;
+        border: 1px solid #ddd;
+      }
+
+      .item {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .header {
+        padding: 14px;
+        background: #f5f5f5;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .content {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 14px;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+      }
+
+      .item.active .content {
+        max-height: 120px;
+        padding: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Accordion Component</h2>
+
+    <div id="accordion" class="accordion"></div>
+
+    <script>
+      const sections = [
+        {
+          title: "Section 1",
+          content: "Content for section 1. This is some detailed information.",
+        },
+        {
+          title: "Section 2",
+          content: "Content for section 2. This is some detailed information.",
+        },
+        {
+          title: "Section 3",
+          content: "Content for section 3. This is some detailed information.",
+        },
+      ];
+
+      const accordion = document.getElementById("accordion");
+
+      sections.forEach((section) => {
+        const item = document.createElement("div");
+        item.className = "item";
+
+        item.innerHTML = `
+    <div class="header">${section.title}</div>
+    <div class="content">${section.content}</div>
+  `;
+
+        accordion.appendChild(item);
+      });
+
+      accordion.addEventListener("click", (e) => {
+        if (!e.target.classList.contains("header")) return;
+
+        const currentItem = e.target.parentElement;
+
+        document.querySelectorAll(".item").forEach((item) => {
+          if (item !== currentItem) {
+            item.classList.remove("active");
+          }
+        });
+
+        currentItem.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
