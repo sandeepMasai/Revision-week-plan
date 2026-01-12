@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sortable Table</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      table {
+        width: 400px;
+        border-collapse: collapse;
+        background: white;
+      }
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+      th {
+        cursor: pointer;
+        background: #eee;
+        user-select: none;
+      }
+      th span {
+        margin-left: 5px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Sortable Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable('name')">
+            Name <span id="name-indicator"></span>
+          </th>
+          <th onclick="sortTable('age')">
+            Age <span id="age-indicator"></span>
+          </th>
+          <th onclick="sortTable('salary')">
+            Salary <span id="salary-indicator"></span>
+          </th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+
+    <script>
+      const tableData = [
+        { name: "John", age: 25, salary: 50000 },
+        { name: "Alice", age: 30, salary: 75000 },
+        { name: "Bob", age: 22, salary: 45000 },
+        { name: "Charlie", age: 35, salary: 90000 },
+      ];
+
+      let sortState = {
+        key: null,
+        direction: "asc",
+      };
+
+      const tbody = document.getElementById("table-body");
+      const indicators = {
+        name: document.getElementById("name-indicator"),
+        age: document.getElementById("age-indicator"),
+        salary: document.getElementById("salary-indicator"),
+      };
+
+      function renderTable(data) {
+        tbody.innerHTML = "";
+        data.forEach((row) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+        <td>${row.name}</td>
+        <td>${row.age}</td>
+        <td>${row.salary}</td>
+      `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      function clearIndicators() {
+        Object.values(indicators).forEach((ind) => (ind.textContent = ""));
+      }
+
+      function sortTable(key) {
+        if (sortState.key === key) {
+          sortState.direction = sortState.direction === "asc" ? "desc" : "asc";
+        } else {
+          sortState.key = key;
+          sortState.direction = "asc";
+        }
+
+        clearIndicators();
+        indicators[key].textContent =
+          sortState.direction === "asc" ? "Up" : "Down";
+
+        const sortedData = [...tableData].sort((a, b) => {
+          if (typeof a[key] === "number") {
+            return sortState.direction === "asc"
+              ? a[key] - b[key]
+              : b[key] - a[key];
+          } else {
+            return sortState.direction === "asc"
+              ? a[key].localeCompare(b[key])
+              : b[key].localeCompare(a[key]);
+          }
+        });
+
+        renderTable(sortedData);
+      }
+
+      renderTable(tableData);
+    </script>
+  </body>
+</html>

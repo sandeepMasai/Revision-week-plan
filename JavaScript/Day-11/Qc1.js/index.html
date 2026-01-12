@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dynamic Search Filter</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      input {
+        width: 300px;
+        padding: 8px;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        background: white;
+        margin-bottom: 5px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .highlight {
+        background-color: yellow;
+        font-weight: bold;
+      }
+      .count {
+        margin: 10px 0;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Dynamic Search Filter</h2>
+
+    <input
+      type="text"
+      id="search"
+      placeholder="Search by name or category..."
+    />
+
+    <div class="count">Results: <span id="count"></span></div>
+
+    <ul id="list"></ul>
+
+    <script>
+      const items = [
+        { name: "Laptop", category: "Electronics" },
+        { name: "Mouse", category: "Electronics" },
+        { name: "Keyboard", category: "Electronics" },
+        { name: "Chair", category: "Furniture" },
+        { name: "Table", category: "Furniture" },
+        { name: "Notebook", category: "Stationery" },
+        { name: "Pen", category: "Stationery" },
+      ];
+
+      const searchInput = document.getElementById("search");
+      const list = document.getElementById("list");
+      const countEl = document.getElementById("count");
+
+      function highlight(text, keyword) {
+        if (!keyword) return text;
+        const regex = new RegExp(`(${keyword})`, "gi");
+        return text.replace(regex, `<span class="highlight">$1</span>`);
+      }
+
+      function renderList(filteredItems, keyword) {
+        list.innerHTML = "";
+
+        filteredItems.forEach((item) => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+        ${highlight(item.name, keyword)} 
+        <small>(${highlight(item.category, keyword)})</small>
+      `;
+          list.appendChild(li);
+        });
+
+        countEl.textContent = filteredItems.length;
+      }
+
+      renderList(items, "");
+
+      searchInput.addEventListener("input", function () {
+        const keyword = this.value.toLowerCase();
+
+        const filtered = items.filter(
+          (item) =>
+            item.name.toLowerCase().includes(keyword) ||
+            item.category.toLowerCase().includes(keyword)
+        );
+
+        renderList(filtered, keyword);
+      });
+    </script>
+  </body>
+</html>
