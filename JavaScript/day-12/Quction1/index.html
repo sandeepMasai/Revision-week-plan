@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Infinite Scroll</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      .item {
+        border: 1px solid #ddd;
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+      }
+      #loading {
+        text-align: center;
+        padding: 15px;
+        display: none;
+        font-weight: bold;
+      }
+      #end {
+        text-align: center;
+        padding: 15px;
+        color: gray;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Infinite Scroll Demo</h2>
+
+    <div id="list"></div>
+    <div id="loading">Loading...</div>
+    <div id="end">No more items</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

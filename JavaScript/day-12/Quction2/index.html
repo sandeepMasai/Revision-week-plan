@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Drag & Drop Reordering</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        max-width: 400px;
+      }
+
+      li {
+        padding: 12px;
+        border: 1px solid #ccc;
+        margin-bottom: 6px;
+        border-radius: 4px;
+        background: #fff;
+        cursor: grab;
+      }
+
+      li.dragging {
+        opacity: 0.4;
+      }
+
+      .drop-zone {
+        height: 8px;
+        background: transparent;
+      }
+
+      .drop-zone.active {
+        background: #4caf50;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Drag & Drop Task Reordering</h2>
+    <ul id="list"></ul>
+
+    <script src="script.js"></script>
+  </body>
+</html>
