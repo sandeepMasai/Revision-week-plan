@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ShopQuest</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>ShopQuest</h1>
+
+      <div id="user"></div>
+
+      <nav>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </header>
+
+    <!-- FILTERS -->
+    <section>
+      <input id="search" placeholder="Search products..." />
+
+      <select id="category">
+        <option value="">All Categories</option>
+      </select>
+
+      <select id="sort">
+        <option value="asc">Price: Low → High</option>
+        <option value="desc">Price: High → Low</option>
+      </select>
+    </section>
+
+    <div id="cachedLabel"></div>
+
+    <div id="products"></div>
+
+    <div id="pagination"></div>
+
+    <h3>Search History</h3>
+    <ul id="searchHistory"></ul>
+
+    <h3>Developer Panel</h3>
+    <ul id="devpanel"></ul>
+
+    <script src="js/utils.js"></script>
+    <script src="js/devpanel.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+  </body>
+</html>

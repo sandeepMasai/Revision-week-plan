@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ShopQuest | Login</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ShopQuest Login</h1>
+      <a href="index.html">Home</a>
+    </header>
+
+    <div style="margin-top: 40px">
+      <h2>Login to continue checkout</h2>
+
+      <input id="username" placeholder="Username" value="mor_2314" />
+      <input
+        id="password"
+        type="password"
+        placeholder="Password"
+        value="83r5^_"
+      />
+
+      <button onclick="login()">Login</button>
+
+      <p id="error" style="color: red; margin-top: 10px"></p>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/devpanel.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
