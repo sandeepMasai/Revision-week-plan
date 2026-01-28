@@ -1,0 +1,49 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #f6f7fb;
+  margin: 0;
+}
+
+.app {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.feed {
+  display: grid;
+  gap: 1rem;
+}
+
+.post {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.post.highlight {
+  border-left: 6px solid #7c5cff;
+}
+
+.separator {
+  font-weight: bold;
+  color: #666;
+}
+
+.search,
+.panel,
+.pagination {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal {
+  position: fixed;
+  inset: 10%;
+  background: white;
+  padding: 1rem;
+  overflow: auto;
+  border-radius: 8px;
+}
